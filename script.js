@@ -6,37 +6,21 @@ wrapper.classList.add("items-container");
 
 slider.append(wrapper);
 
-let div;
-
 for (let i = 1; i < 6; i++) {
-    div = document.createElement("div");
-
-    div.classList.add("item");
-
-    div.innerHTML = `<img src="img/0${i}.webp">`
-
-    wrapper.append(div)
+    wrapper.innerHTML += `<div class="item"><img src="img/0${i}.webp"></div> `;
 }
 
-div = document.querySelector(".item");
+let div = document.querySelector(".item");
 
 div.classList.add("active")
 
 const items = document.getElementsByClassName("item");
 
-const next = document.createElement("div");
+slider.innerHTML += `<div class="prev hidden">^</div>` + `<div class="next">^</div>`;
 
-next.classList.add("next");
+const next = document.querySelector(".next");
 
-next.innerHTML = "^";
-
-const prev = document.createElement("div");
-
-prev.classList.add("prev", "hidden");
-
-prev.innerHTML = "^";
-
-slider.append(prev, next);
+const prev = document.querySelector(".prev");
 
 let activeItem = 0;
 
